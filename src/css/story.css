@@ -1,0 +1,155 @@
+/* ═══════════════════════════════════════════════
+   ORIGIN STORY — "Born Under the Cebu Sun"
+   ═══════════════════════════════════════════════ */
+
+.story {
+  padding: clamp(100px, 12vw, 180px) 0;
+  background: var(--bg);
+  position: relative;
+}
+
+.story::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+}
+
+/* Image side */
+.story-image-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.story-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  will-change: transform;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.story-image-frame {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(212, 146, 26, 0.2);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.story-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(42, 21, 4, 0.4) 100%
+  );
+  z-index: 1;
+}
+
+/* Text side */
+.story-text {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.story-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.story-title {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.story-title .line-wrap {
+  overflow: hidden;
+  display: block;
+}
+
+.story-title .line-inner {
+  display: block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+.story-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.story-body p {
+  font-family: var(--font-sans);
+  font-size: clamp(14px, 1.3vw, 17px);
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: opacity, transform;
+}
+
+.story-accent {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  opacity: 0;
+  will-change: opacity;
+}
+
+/* Decorative quote */
+.story-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(18px, 2.2vw, 28px);
+  color: var(--gold);
+  line-height: 1.4;
+  padding-left: 24px;
+  border-left: 2px solid rgba(212, 146, 26, 0.3);
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: opacity, transform;
+}
+
+@media (max-width: 768px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .story-image-wrap img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .story-quote {
+    padding-left: 16px;
+  }
+}

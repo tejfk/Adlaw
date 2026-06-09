@@ -1,0 +1,176 @@
+/* ═══════════════════════════════════════════════
+   MENU SHOWCASE — "Our Craft"
+   ═══════════════════════════════════════════════ */
+
+.menu {
+  padding: clamp(100px, 12vw, 180px) 0;
+  background: var(--bg-subtle);
+  position: relative;
+}
+
+.menu-header {
+  text-align: center;
+  margin-bottom: clamp(50px, 7vw, 90px);
+}
+
+.menu-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.menu-title {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.menu-title .line-wrap {
+  overflow: hidden;
+  display: block;
+}
+
+.menu-title .line-inner {
+  display: block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+.menu-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(14px, 1.5vw, 18px);
+  color: var(--text-muted);
+  opacity: 0;
+  will-change: opacity;
+}
+
+/* Drink Cards Grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+}
+
+.menu-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: clamp(28px, 3vw, 40px);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  opacity: 0;
+  transform: translateY(50px);
+  will-change: opacity, transform;
+  transition: border-color 0.4s ease, transform 0.4s var(--ease-out-expo), box-shadow 0.4s ease;
+}
+
+.menu-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(212, 146, 26, 0.08);
+}
+
+.menu-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 146, 26, 0.08),
+    transparent
+  );
+}
+
+.card-icon {
+  font-size: clamp(32px, 3.5vw, 48px);
+  margin-bottom: 20px;
+  display: block;
+  color: var(--gold);
+}
+
+.card-tag {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(212, 146, 26, 0.1);
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.card-name {
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.card-desc {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.card-price {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--gold-light);
+  font-weight: 500;
+}
+
+/* Glow on hover */
+.menu-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(212, 146, 26, 0.04) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.menu-card:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .menu-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

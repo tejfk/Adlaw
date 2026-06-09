@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/images/adlaw-logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adlaw Café — Every Cup Begins With Sunlight</title>
+    <meta name="description" content="Adlaw Café is a warm, sun-inspired café experience rooted in Cebuano identity. A daily ritual space where coffee meets calm, and every cup begins with sunlight." />
+    <meta name="theme-color" content="#2A1504" />
+
+    <!-- Preload key assets -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" />
+    <link rel="preload" href="/images/hero-bg.png" as="image" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+
+    <!-- Custom cursor -->
+    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+    <!-- ═══════════ PRELOADER ═══════════ -->
+    <div class="preloader" id="preloader">
+      <div class="preloader-inner">
+        <div class="preloader-text">
+          <span class="preloader-welcome">Welcome to</span>
+          <span class="preloader-brand">Adlaw Café</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Global Floating Logo -->
+    <img
+      class="hero-logo"
+      src="/images/adlaw-logo.png"
+      alt="Adlaw Café logo — sun with ADLAW letterform"
+    />
+
+    <!-- Film grain overlay -->
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- ═══════════════════════════════════════
+         HERO — "Maayong Buntag"
+         ═══════════════════════════════════════ -->
+    <section class="hero" id="hero">
+
+      <div class="hero-content">
+        <div class="hero-greeting">Maayong Buntag ☀️</div>
+        <div class="hero-divider" aria-hidden="true"></div>
+        <h1 class="hero-title">
+          <span class="word"><span class="word-inner">Every</span></span>
+          <span class="word"><span class="word-inner">Cup</span></span>
+          <span class="word"><span class="word-inner">Begins</span></span>
+          <br />
+          <span class="word"><span class="word-inner">With</span></span>
+          <span class="word"><span class="word-inner">Sunlight</span></span>
+        </h1>
+        <p class="hero-tagline">A daily ritual, brewed with love in Cebu</p>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         ORIGIN STORY — "Born Under the Cebu Sun"
+         ═══════════════════════════════════════ -->
+    <section class="story" id="story">
+      <div class="section-inner">
+        <div class="story-grid">
+          <div class="story-image-wrap img-reveal">
+            <img src="/images/origin-story.png" alt="Warm Cebuano café interior with rustic wooden details and morning light" />
+            <div class="story-image-overlay"></div>
+            <div class="story-image-frame" aria-hidden="true"></div>
+          </div>
+          <div class="story-text">
+            <div class="story-label">Our Story</div>
+            <h2 class="story-title">
+              <span class="line-wrap"><span class="line-inner">Born Under</span></span>
+              <span class="line-wrap"><span class="line-inner">the Cebu Sun</span></span>
+            </h2>
+            <div class="story-accent" aria-hidden="true"></div>
+            <div class="story-body">
+              <p>
+                "Adlaw" means sun — or day — in Cebuano. It's the first thing you feel when morning comes: warmth on your skin, light through the window, the quiet promise that today can be good.
+              </p>
+              <p>
+                We built Adlaw Café around that feeling. Not just a place to grab coffee, but a space to pause. To breathe. To let the warmth of a well-made cup remind you that slowness is not laziness — it's intention.
+              </p>
+              <p>
+                Every blend we pour carries the soul of Cebu — from native Barako beans to tablea from the old markets of Carbon. This is coffee with memory.
+              </p>
+            </div>
+            <blockquote class="story-quote">
+              "Hindi lang kape. Isa siyang ritwal — isang simula ng magandang araw."
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         MENU SHOWCASE — "Our Craft"
+         ═══════════════════════════════════════ -->
+    <section class="menu" id="menu">
+      <div class="section-inner">
+        <div class="menu-header">
+          <div class="menu-label">The Menu</div>
+          <h2 class="menu-title">
+            <span class="line-wrap"><span class="line-inner">Our Craft</span></span>
+          </h2>
+          <p class="menu-subtitle">Eight stories in every cup</p>
+        </div>
+        <div class="menu-grid" id="menu-grid">
+          <!-- Cards rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         EXPERIENCE — "The Adlaw Ritual"
+         ═══════════════════════════════════════ -->
+    <section class="experience" id="experience">
+      <!-- Parallax quote band -->
+      <div class="exp-parallax img-reveal">
+        <div class="exp-parallax-img">
+          <img src="/images/pic1.jpg" alt="Adlaw Cafe" />
+        </div>
+        <div class="exp-parallax-overlay"></div>
+        <div class="exp-parallax-content">
+          <p class="exp-quote">
+            "Premium taste,<br />student budget. Your fast,<br />fresh daily fuel."
+          </p>
+          <span class="exp-quote-author">— The Adlaw Philosophy</span>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="exp-stats">
+        <div class="section-inner">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number" data-value="47000">
+                <span class="stat-value">0</span><span class="stat-suffix">+</span>
+              </div>
+              <div class="stat-label">Cups Poured</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-value="340">
+                <span class="stat-value">0</span><span class="stat-suffix"> pts</span>
+              </div>
+              <div class="stat-label">Sun Points Earned Today</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-value="8">
+                <span class="stat-value">0</span>
+              </div>
+              <div class="stat-label">Signature Blends</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Latte art band -->
+      <div class="exp-latte img-reveal">
+        <div class="exp-latte-img">
+          <img src="/images/pic2.png" alt="Adlaw Cafe drink" />
+        </div>
+        <div class="exp-latte-overlay"></div>
+        <div class="exp-latte-text">
+          <div class="t-label">Craftsmanship</div>
+          <h3 class="exp-latte-title">Every pour tells a story</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         LOCATION — "Find Your Sun"
+         ═══════════════════════════════════════ -->
+    <section class="location" id="location">
+      <div class="section-inner">
+        <div class="location-grid">
+          <div class="location-text">
+            <div class="location-label">Find Your Sun</div>
+            <h2 class="location-title">
+              <span class="line-wrap"><span class="line-inner">Visit Us in</span></span>
+              <span class="line-wrap"><span class="line-inner">Cebu City</span></span>
+            </h2>
+            <div class="location-details">
+              <div class="location-detail-item">
+                <div class="detail-icon">📍</div>
+                <div class="detail-text">
+                  <strong>Osmena Blvd, Sanciangko St</strong>
+                  <span>Near UC Jones building</span>
+                </div>
+              </div>
+              <div class="location-detail-item">
+                <div class="detail-icon">🕐</div>
+                <div class="detail-text">
+                  <strong>Store Hours</strong>
+                  <span>Mon-Fri: 8 AM - 4 AM<br>Sat: 9 AM - 4 AM<br>Sun: 11 AM - 4 AM</span>
+                </div>
+              </div>
+              <div class="location-detail-item">
+                <div class="detail-icon">💳</div>
+                <div class="detail-text">
+                  <strong>Student Loyalty Card</strong>
+                  <span>6th cup: 20% off · 10th cup: Free!</span>
+                </div>
+              </div>
+              <div class="location-detail-item">
+                <div class="detail-icon">🏃</div>
+                <div class="detail-text">
+                  <strong>Grab & Go Kiosk</strong>
+                  <span>Text ahead for quick pickup between classes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="location-image-wrap img-reveal">
+            <img src="/images/pic3.png" alt="Adlaw Cafe stall" />
+            <div class="location-image-badge">
+              <div class="badge-dot"></div>
+              <span class="badge-text">Open Now</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         FOOTER — "Until Tomorrow's Sun"
+         ═══════════════════════════════════════ -->
+    <footer class="footer" id="footer">
+      <div class="section-inner">
+        <img
+          class="footer-logo"
+          src="/images/adlaw-logo.png"
+          alt="Adlaw Café"
+        />
+        <p class="footer-tagline">A place for everyone ✨</p>
+        <nav class="footer-links" aria-label="Social links">
+          <a href="#" class="footer-link hover-line">Instagram</a>
+          <a href="#" class="footer-link hover-line">Facebook</a>
+          <a href="#" class="footer-link hover-line">TikTok</a>
+          <a href="#" class="footer-link hover-line">Email</a>
+        </nav>
+        <p class="footer-copy">© 2026 Adlaw Café · Brewed with love in Cebu</p>
+      </div>
+    </footer>
+
+    <!-- Entry point -->
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

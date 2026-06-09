@@ -1,0 +1,142 @@
+/* ═══════════════════════════════════════════════
+   HERO SECTION — "Maayong Buntag"
+   ═══════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--bg); /* Changed to white background */
+}
+
+/* Background image with overlay */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(42, 21, 4, 0.55) 0%,
+    rgba(42, 21, 4, 0.3) 40%,
+    rgba(42, 21, 4, 0.5) 70%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+}
+
+/* Content */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Logo */
+.hero-logo {
+  position: fixed;
+  top: 42%; /* Slightly higher than true center */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  width: clamp(180px, 25vw, 350px); /* Noticeable but readable size */
+  height: auto;
+  opacity: 1; /* Starts fully visible for preloader */
+  mix-blend-mode: multiply; /* Makes white PNG background transparent! */
+  will-change: transform, opacity, left, top;
+  z-index: 100000; /* Starts above preloader */
+  pointer-events: none;
+}
+
+/* Greeting label */
+.hero-greeting {
+  font-family: var(--font-sans);
+  font-size: clamp(10px, 1.2vw, 13px);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  will-change: opacity;
+}
+
+/* Main title */
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(42px, 7vw, 96px);
+  font-weight: 500;
+  color: var(--text); /* Dark text */
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  will-change: transform, opacity;
+}
+
+.hero-title .word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  margin-right: 0.2em;
+}
+
+.hero-title .word-inner {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+/* Tagline */
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(16px, 2vw, 22px);
+  color: var(--text-muted); /* Dark muted text */
+  font-weight: 400;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* Decorative divider */
+.hero-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  will-change: opacity, width;
+}
+
+/* Scroll indicator override for hero */
+.hero .scroll-indicator {
+  z-index: 3;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero-title {
+    font-size: clamp(36px, 10vw, 56px);
+  }
+
+  .hero-glow {
+    width: 250px;
+    height: 250px;
+  }
+}
