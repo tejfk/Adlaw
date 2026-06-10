@@ -4,7 +4,7 @@
 
 .menu {
   padding: clamp(100px, 12vw, 180px) 0;
-  background: var(--bg-subtle);
+  background: transparent;
   position: relative;
 }
 

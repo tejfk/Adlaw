@@ -6,11 +6,8 @@
   position: relative;
   height: 100vh;
   min-height: 700px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
-  background: var(--bg); /* Changed to white background */
+  background: transparent;
 }
 
 /* Background image with overlay */
@@ -42,13 +39,18 @@
 
 /* Content */
 .hero-content {
-  position: relative;
+  position: absolute;
+  top: calc(22vh + clamp(60px, 11vw, 150px) + 15px);
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 3;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
+  width: 100%;
+  padding: 0 24px;
 }
 
 /* Logo */
@@ -57,7 +59,7 @@
   top: 42%; /* Slightly higher than true center */
   left: 50%;
   transform: translate(-50%, -50%); /* Center horizontally and vertically */
-  width: clamp(180px, 25vw, 350px); /* Noticeable but readable size */
+  width: clamp(120px, 22vw, 300px); /* Responsive size from mobile to desktop */
   height: auto;
   opacity: 1; /* Starts fully visible for preloader */
   mix-blend-mode: multiply; /* Makes white PNG background transparent! */

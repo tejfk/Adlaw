@@ -166,43 +166,57 @@ function menuAnimations(ScrollTrigger) {
 }
 
 function experienceAnimations(ScrollTrigger) {
-  // Parallax on experience image
-  gsap.to('.exp-parallax-img img', {
-    y: '20%',
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.exp-parallax',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: true,
-    },
-  });
-  gsap.set('.exp-parallax-img img', { y: '-10%' });
+  // Parallax on experience image 1
+  if (document.querySelector('.exp-parallax .exp-image-wrap img')) {
+    gsap.to('.exp-parallax .exp-image-wrap img', {
+      y: '10%',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.exp-parallax',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+      },
+    });
+    gsap.set('.exp-parallax .exp-image-wrap img', { y: '-10%' });
+  }
 
-  // Quote
-  gsap.to('.exp-quote', {
+  // Quote Card
+  gsap.to('.exp-quote-card', {
     opacity: 1,
     y: 0,
-    duration: 1.2,
+    duration: 1,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.exp-parallax',
+      start: 'top 80%',
+    },
+  });
+  gsap.set('.exp-quote-card', { y: 40, opacity: 0 });
+
+  // Quote text inside card
+  gsap.to('.exp-quote', {
+    opacity: 1,
+    duration: 1,
     ease: 'power2.out',
     scrollTrigger: {
       trigger: '.exp-quote',
-      start: 'top 75%',
+      start: 'top 80%',
     },
   });
-  gsap.set('.exp-quote', { y: 40 });
+  gsap.set('.exp-quote', { opacity: 0 });
 
-  // Quote author
   gsap.to('.exp-quote-author', {
     opacity: 1,
     duration: 0.8,
-    delay: 0.4,
+    delay: 0.2,
     ease: 'power2.out',
     scrollTrigger: {
       trigger: '.exp-quote-author',
       start: 'top 85%',
     },
   });
+  gsap.set('.exp-quote-author', { opacity: 0 });
 
   // Counter numbers — animate from 0
   gsap.utils.toArray('.stat-number').forEach((el) => {
@@ -227,9 +241,9 @@ function experienceAnimations(ScrollTrigger) {
   });
 
   // Latte parallax
-  if (document.querySelector('.exp-latte-img img')) {
-    gsap.to('.exp-latte-img img', {
-      y: '15%',
+  if (document.querySelector('.exp-latte .exp-image-wrap img')) {
+    gsap.to('.exp-latte .exp-image-wrap img', {
+      y: '10%',
       ease: 'none',
       scrollTrigger: {
         trigger: '.exp-latte',
@@ -238,30 +252,46 @@ function experienceAnimations(ScrollTrigger) {
         scrub: true,
       },
     });
-    gsap.set('.exp-latte-img img', { y: '-8%' });
+    gsap.set('.exp-latte .exp-image-wrap img', { y: '-10%' });
   }
 
-  // Latte text
+  // Latte text card
+  gsap.to('.exp-latte-text', {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.exp-latte',
+      start: 'top 80%',
+    },
+  });
+  gsap.set('.exp-latte-text', { y: 40, opacity: 0 });
+
+  // Latte text elements
   gsap.to('.exp-latte-text .t-label', {
     opacity: 1,
     duration: 0.8,
+    delay: 0.2,
     scrollTrigger: {
       trigger: '.exp-latte-text',
-      start: 'top 85%',
+      start: 'top 80%',
     },
   });
+  gsap.set('.exp-latte-text .t-label', { opacity: 0 });
 
   gsap.to('.exp-latte-title', {
     opacity: 1,
     y: 0,
     duration: 1,
-    delay: 0.2,
+    delay: 0.3,
     ease: 'power2.out',
     scrollTrigger: {
       trigger: '.exp-latte-title',
-      start: 'top 85%',
+      start: 'top 80%',
     },
   });
+  gsap.set('.exp-latte-title', { y: 15, opacity: 0 });
 }
 
 function locationAnimations(ScrollTrigger) {

@@ -10,10 +10,58 @@
 
     <!-- Preload key assets -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" as="style" />
-    <link rel="preload" href="/images/hero-bg.png" as="image" />
+    <link rel="preload" href="/images/cloud.png" as="image" />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- FOUC Prevention: Style preloader and logo immediately so they cover the screen on load -->
+    <style>
+      body {
+        margin: 0;
+        background: #FEFAF4;
+        overflow: hidden;
+      }
+      .preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        background: #FEFAF4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .preloader-inner {
+        position: absolute;
+        top: calc(42% + (clamp(120px, 22vw, 300px) / 2) + 24px);
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .preloader-welcome, .preloader-brand {
+        opacity: 0;
+      }
+      .hero-logo {
+        position: fixed;
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: clamp(120px, 22vw, 300px);
+        height: auto;
+        opacity: 1;
+        mix-blend-mode: multiply;
+        z-index: 100000;
+        pointer-events: none;
+      }
+    </style>
   </head>
   <body>
+
+    <!-- Background & Foreground cloud layers for logo occlusion -->
+    <div class="sky-background" aria-hidden="true"></div>
+    <div class="cloud-foreground" id="cloud-foreground" aria-hidden="true"></div>
 
     <!-- Custom cursor -->
     <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
@@ -71,7 +119,7 @@
       <div class="section-inner">
         <div class="story-grid">
           <div class="story-image-wrap img-reveal">
-            <img src="/images/origin-story.png" alt="Warm Cebuano café interior with rustic wooden details and morning light" />
+            <img src="/images/pic1.jpg" alt="Cozy cup of coffee with warm morning sunlight" />
             <div class="story-image-overlay"></div>
             <div class="story-image-frame" aria-hidden="true"></div>
           </div>
@@ -125,15 +173,18 @@
     <section class="experience" id="experience">
       <!-- Parallax quote band -->
       <div class="exp-parallax img-reveal">
-        <div class="exp-parallax-img">
-          <img src="/images/pic1.jpg" alt="Adlaw Cafe" />
-        </div>
-        <div class="exp-parallax-overlay"></div>
-        <div class="exp-parallax-content">
-          <p class="exp-quote">
-            "Premium taste,<br />student budget. Your fast,<br />fresh daily fuel."
-          </p>
-          <span class="exp-quote-author">— The Adlaw Philosophy</span>
+        <div class="section-inner">
+          <div class="exp-grid">
+            <div class="exp-quote-card">
+              <p class="exp-quote">
+                "Premium taste,<br />student budget. Your fast,<br />fresh daily fuel."
+              </p>
+              <span class="exp-quote-author">— The Adlaw Philosophy</span>
+            </div>
+            <div class="exp-image-wrap">
+              <img src="/images/pic1.jpg" alt="Adlaw Cafe Latte" />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -165,13 +216,16 @@
 
       <!-- Latte art band -->
       <div class="exp-latte img-reveal">
-        <div class="exp-latte-img">
-          <img src="/images/pic2.png" alt="Adlaw Cafe drink" />
-        </div>
-        <div class="exp-latte-overlay"></div>
-        <div class="exp-latte-text">
-          <div class="t-label">Craftsmanship</div>
-          <h3 class="exp-latte-title">Every pour tells a story</h3>
+        <div class="section-inner">
+          <div class="exp-grid latte-grid">
+            <div class="exp-image-wrap">
+              <img src="/images/pic2.png" alt="Adlaw Cafe Drink" />
+            </div>
+            <div class="exp-latte-text">
+              <div class="t-label">Craftsmanship</div>
+              <h3 class="exp-latte-title">Every pour tells a story</h3>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -221,10 +275,6 @@
           </div>
           <div class="location-image-wrap img-reveal">
             <img src="/images/pic3.png" alt="Adlaw Cafe stall" />
-            <div class="location-image-badge">
-              <div class="badge-dot"></div>
-              <span class="badge-text">Open Now</span>
-            </div>
           </div>
         </div>
       </div>
@@ -243,7 +293,7 @@
         <p class="footer-tagline">A place for everyone ✨</p>
         <nav class="footer-links" aria-label="Social links">
           <a href="#" class="footer-link hover-line">Instagram</a>
-          <a href="#" class="footer-link hover-line">Facebook</a>
+          <a href="https://www.facebook.com/profile.php?id=61552400623107&amp;mibextid=wwXIfr&amp;rdid=aoayJUYdZmWwWVKK&amp;share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DR57wySDm%2F%3Fmibextid%3DwwXIfr" target="_blank" rel="noopener noreferrer" class="footer-link hover-line">Facebook</a>
           <a href="#" class="footer-link hover-line">TikTok</a>
           <a href="#" class="footer-link hover-line">Email</a>
         </nav>

@@ -71,7 +71,7 @@ html.lenis, html.lenis body {
 
 body {
   font-family: var(--font-sans);
-  background: var(--bg);
+  background: transparent;
   color: var(--text);
   overflow-x: hidden;
   line-height: 1.6;
@@ -166,9 +166,10 @@ button {
 }
 
 /* ── Section base ── */
-section {
+section, footer, .footer {
   position: relative;
   overflow: hidden;
+  z-index: 102;
 }
 
 .section-inner {
@@ -268,9 +269,9 @@ section {
 
 .preloader-inner {
   position: absolute;
-  top: 60%; /* Slightly higher and closer to the logo */
+  top: calc(42% + (clamp(120px, 22vw, 300px) / 2) + 24px); /* Positioned exactly below the logo's bottom edge */
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -342,7 +343,7 @@ section {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(212, 146, 26, 0.06) 0%, transparent 70%);
   pointer-events: none;
-  z-index: 99998;
+  z-index: 200000;
   transform: translate(-50%, -50%);
   will-change: transform;
   opacity: 0;
@@ -356,7 +357,7 @@ section {
   border-radius: 50%;
   background: var(--gold);
   pointer-events: none;
-  z-index: 99998;
+  z-index: 200000;
   transform: translate(-50%, -50%);
   will-change: transform;
   opacity: 0;
@@ -437,4 +438,27 @@ section {
 .interactive:active {
   transform: translateY(0) scale(0.98);
   transition-duration: 0.1s;
+}
+
+/* ═══════════════════════════════════════════════
+   SKY BACKGROUND & FOREGROUND CLOUDS LAYERING
+   ═══════════════════════════════════════════════ */
+
+.sky-background {
+  position: fixed;
+  inset: 0;
+  background: #BFE3F7; /* Soft sky blue */
+  background-image: url('/images/cloud.png');
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+.cloud-foreground {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none; /* Let clicks pass through */
+  z-index: 101; /* Sits directly above .hero-logo (z-index 100) and below content (z-index 102) */
 }
