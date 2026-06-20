@@ -77,6 +77,7 @@ function initPreloader() {
       onComplete: () => {
         gsap.set('.hero-logo', { zIndex: 10 }); // Keep above the white background
         gsap.set('.preloader', { display: 'none' });
+        document.body.style.overflow = ''; // Restore native scrolling
         window.dispatchEvent(new CustomEvent('preloaderComplete'));
       }
     }, '<'); // Play simultaneously with the preloader fade
